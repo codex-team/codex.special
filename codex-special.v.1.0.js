@@ -140,7 +140,7 @@ var codexSpecial = (function() {
         /**
         * 0. Init dictionary
         */
-        var texts = DICT[initialSettings.lang];
+        texts = DICT[initialSettings.lang];
 
         /**
         * 1. Make Toolbar and Switchers
