@@ -11,12 +11,12 @@ var codexSpecial = (function() {
     */
     var DICT = {
 
-        'ru' : {
+        ru : {
             increaseSize : 'Увеличить размер',
             decreaseSize : 'Уменьшить размер'
         },
 
-        'en' : {
+        en : {
             increaseSize : 'Increase size',
             decreaseSize : 'Decrease size'
         }
@@ -140,7 +140,7 @@ var codexSpecial = (function() {
         /**
         * 0. Init dictionary
         */
-        texts = DICT[initialSettings.lang];
+        var texts = DICT[initialSettings.lang];
 
         /**
         * 1. Make Toolbar and Switchers
