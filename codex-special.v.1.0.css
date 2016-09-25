@@ -225,7 +225,7 @@ body.special-white,
 {
     background-color: #fff812 !important;
     color: #15130b !important;
-    border-color: transparent; !important;
+    border-color: transparent !important;
 }
 .special-green .codex-special__toolbar_text:hover,
 .special-white .codex-special__toolbar_text:hover,
