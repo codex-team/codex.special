@@ -76,6 +76,7 @@ html body .codex-special__toolbar{
         height: 7px;
         border: 7px solid;
         vertical-align: middle;
+        box-sizing: content-box;
         border-radius: 50%;
         cursor: pointer;
         float: right;
