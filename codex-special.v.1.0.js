@@ -6,6 +6,7 @@
 * @version 1.0
 */
 var codexSpecial = (function() {
+
     /**
     * Multilanguage support
     */
@@ -23,9 +24,10 @@ var codexSpecial = (function() {
 
     };
 
+    /**
+    * Texts from dictionary
+    */
     var texts = null;
-
-    var pathToExtension = '';
 
     /**
     * @private static nodes
@@ -42,6 +44,12 @@ var codexSpecial = (function() {
     * Required stylesheets URL
     */
     var CSS_FILE_PATH = 'codex-special.v.1.0.css';
+
+    /**
+    * Path to codex-special
+    * Generated automatically
+    */
+    var pathToExtension;
 
     /**
     * @private CSS classes config
@@ -127,11 +135,7 @@ var codexSpecial = (function() {
 
         }
 
-        if (initialSettings['scriptLocation'] == null) {
-
-            getScriptLocation();
-
-        }
+        pathToExtension = getScriptLocation();
 
     }
 
@@ -141,13 +145,13 @@ var codexSpecial = (function() {
     */
     function getScriptLocation() {
 
-        var scriptsList = document.getElementsByTagName('script');
-        var scriptSrc;
-        var lastSlashPosition;
+        var scriptsList = document.getElementsByTagName('script'),
+            scriptSrc,
+            lastSlashPosition;
 
-        for (tag in scriptsList) {
+        for (var i = 1; i < scriptsList.length; i++) {
 
-            scriptSrc = scriptsList[tag].src;
+            scriptSrc = scriptsList[i].src;
 
             if (scriptSrc.indexOf('codex-special') != -1) {
 
@@ -155,9 +159,8 @@ var codexSpecial = (function() {
 
                 scriptDir = scriptSrc.substr(0, lastSlashPosition + 1);
 
-                pathToExtension = scriptDir;
+                return scriptDir;
 
-                break;
             }
         }
 
