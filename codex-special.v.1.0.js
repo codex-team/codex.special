@@ -25,6 +25,8 @@ var codexSpecial = (function() {
 
     var texts = null;
 
+    var pathToExtension = '';
+
     /**
     * @private static nodes
     */
@@ -39,7 +41,7 @@ var codexSpecial = (function() {
     /**
     * Required stylesheets URL
     */
-    var CSS_FILENAME = 'codex-special.v.1.0.css';
+    var CSS_FILE_PATH = 'codex-special.v.1.0.css';
 
     /**
     * @private CSS classes config
@@ -66,7 +68,6 @@ var codexSpecial = (function() {
     var initialSettings = {
 
         blockId : null,
-        scriptLocation : null,
         lang : 'ru'
 
     };
@@ -134,6 +135,33 @@ var codexSpecial = (function() {
 
     }
 
+    /**
+    * @private
+    * Gets codex-special path
+    */
+    function getScriptLocation() {
+
+        var scriptsList = document.getElementsByTagName('script');
+        var scriptSrc;
+        var lastSlashPosition;
+
+        for (tag in scriptsList) {
+
+            scriptSrc = scriptsList[tag].src;
+
+            if (scriptSrc.indexOf('codex-special') != -1) {
+
+                lastSlashPosition = scriptSrc.lastIndexOf('/');
+
+                scriptDir = scriptSrc.substr(0, lastSlashPosition + 1);
+
+                pathToExtension = scriptDir;
+
+                break;
+            }
+        }
+
+    }
 
     /**
     * @private
@@ -146,7 +174,7 @@ var codexSpecial = (function() {
         style.setAttribute('type', 'text/css');
         style.setAttribute('rel', 'stylesheet');
 
-        style.href = initialSettings.scriptLocation + CSS_FILENAME;
+        style.href = pathToExtension + CSS_FILE_PATH;
 
         document.head.appendChild( style );
 
@@ -347,31 +375,6 @@ var codexSpecial = (function() {
         nodes.textSizeSwitcher.innerHTML = '<i class="codex-special__toolbar_icon"></i> ' + texts.increaseSize;
 
         localStorage.removeItem('codex-special__textSize');
-
-    }
-
-    function getScriptLocation () {
-
-        var scriptsList = document.getElementsByTagName('script');
-
-        for (tag in scriptsList)
-        {
-            if (typeof scriptsList[tag] != 'object')
-            {
-                continue;
-            }
-
-            var scriptSrc = scriptsList[tag].src;
-
-            if (scriptSrc.indexOf('codex-special') != -1)
-            {
-                var lastSlashPosition = scriptSrc.lastIndexOf('/');
-
-                scriptDir = scriptSrc.substr(0, lastSlashPosition + 1);
-
-                initialSettings.scriptLocation = scriptDir;
-            }
-        }
 
     }
 
