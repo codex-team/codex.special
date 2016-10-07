@@ -89,7 +89,7 @@ var codexSpecial = (function() {
         /**
         * 1. Save initial settings to the private property
         */
-        initialSettings = settings;
+        getInitSettings_(settings);
 
         /**
         * 2. Prepare stylesheets
@@ -112,6 +112,21 @@ var codexSpecial = (function() {
         loadSettings_();
 
     };
+
+
+    /**
+    * @private
+    * Gets initial settings
+    */
+    function getInitSettings_(settings){
+
+      for (var param in settings) {
+
+          initialSettings[param] = settings[param];
+
+      }
+
+    }
 
 
     /**
