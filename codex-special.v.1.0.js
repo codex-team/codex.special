@@ -118,7 +118,7 @@ var codexSpecial = (function() {
     * @private
     * Fills initialSettings
     */
-    function fillSettings_ (settings) {
+    function fillSettings_(settings) {
 
         for (var param in settings) {
 
@@ -126,9 +126,10 @@ var codexSpecial = (function() {
 
         }
 
-        if (initialSettings['scriptLocation'] == null)
-        {
+        if (initialSettings['scriptLocation'] == null) {
+
             getScriptLocation();
+
         }
 
     }
@@ -138,12 +139,12 @@ var codexSpecial = (function() {
     * @private
     * Loads requeired stylesheet
     */
-    function loadStyles_ () {
+    function loadStyles_() {
 
-        var style = document.createElement( 'link' );
+        var style = document.createElement('link');
 
-        style.setAttribute( 'type', 'text/css' );
-        style.setAttribute( 'rel', 'stylesheet');
+        style.setAttribute('type', 'text/css');
+        style.setAttribute('rel', 'stylesheet');
 
         style.href = initialSettings.scriptLocation + CSS_FILENAME;
 
@@ -155,7 +156,7 @@ var codexSpecial = (function() {
     * @private
     * Interface maker
     */
-    function makeUI_ () {
+    function makeUI_() {
 
         /**
         * 0. Init dictionary
@@ -200,7 +201,7 @@ var codexSpecial = (function() {
     * @private
     * Toolbar positionin method
     */
-    function appendPanel_ () {
+    function appendPanel_() {
 
         if (initialSettings.blockId){
 
@@ -221,7 +222,7 @@ var codexSpecial = (function() {
     /**
     * @private
     */
-    function addListeners_ () {
+    function addListeners_() {
 
         nodes.colorSwitchers.map(function(switcher, index) {
 
@@ -236,7 +237,7 @@ var codexSpecial = (function() {
     /**
     * @private
     */
-    function loadSettings_ () {
+    function loadSettings_() {
 
         var color    = localStorage.getItem('codex-special__color'),
             textSize = localStorage.getItem('codex-special__textSize'),
@@ -246,7 +247,7 @@ var codexSpecial = (function() {
 
             nodes.colorSwitchers.map(function(switcher, index) {
 
-                if (switcher.dataset.style == color){
+                if (switcher.dataset.style == color) {
 
                     changeColor_.call(switcher);
 
@@ -268,9 +269,9 @@ var codexSpecial = (function() {
     /**
     * @private
     */
-    function changeColor_ () {
+    function changeColor_() {
 
-        if ( this.classList.contains('codex-special__circle_enabled') ) {
+        if (this.classList.contains('codex-special__circle_enabled')) {
 
             return dropColor_();
 
@@ -297,7 +298,7 @@ var codexSpecial = (function() {
     /**
     * @private
     */
-    function dropColor_ () {
+    function dropColor_() {
 
     	for (var color in classes.colorSwitchers){
 
@@ -318,15 +319,15 @@ var codexSpecial = (function() {
     /**
     * @private
     */
-    function changeTextSize_ () {
+    function changeTextSize_() {
 
-        if ( document.body.classList.contains(classes.textSizeIncreased) ) {
+        if (document.body.classList.contains(classes.textSizeIncreased)) {
 
             return dropTextSize_();
 
         }
 
-        dropTextSize_ ();
+        dropTextSize_();
 
         nodes.textSizeSwitcher.innerHTML = '<i class="codex-special__toolbar_icon"></i> ' + texts.decreaseSize;
 
@@ -339,7 +340,7 @@ var codexSpecial = (function() {
     /**
     * @private
     */
-    function dropTextSize_ () {
+    function dropTextSize_() {
 
         document.body.classList.remove(classes.textSizeIncreased);
 
@@ -403,7 +404,7 @@ var codexSpecial = (function() {
         * Makes color switcher
         * @param {string} type  - color string identifier
         */
-        colorSwitcher : function ( type ) {
+        colorSwitcher : function (type) {
 
             var colorSwitcher = draw_.element('SPAN', 'codex-special__circle');
 
