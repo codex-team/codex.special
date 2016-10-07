@@ -39,7 +39,7 @@ var codexSpecial = (function() {
     /**
     * Required stylesheets URL
     */
-    var CSS_FILE_PATH = 'codex-special.v.1.0.css';
+    var CSS_FILENAME = 'codex-special.v.1.0.css';
 
     /**
     * @private CSS classes config
@@ -66,7 +66,7 @@ var codexSpecial = (function() {
     var initialSettings = {
 
         blockId : null,
-        scriptLocation : '/',
+        scriptLocation : null,
         lang : 'ru'
 
     };
@@ -118,13 +118,18 @@ var codexSpecial = (function() {
     * @private
     * Fills initialSettings
     */
-    function fillSettings_(settings){
+    function fillSettings_ (settings) {
 
-      for (var param in settings) {
+        for (var param in settings) {
 
-          initialSettings[param] = settings[param];
+            initialSettings[param] = settings[param];
 
-      }
+        }
+
+        if (initialSettings['scriptLocation'] == null)
+        {
+            getScriptLocation();
+        }
 
     }
 
@@ -133,14 +138,14 @@ var codexSpecial = (function() {
     * @private
     * Loads requeired stylesheet
     */
-    function loadStyles_(){
+    function loadStyles_ () {
 
         var style = document.createElement( 'link' );
 
         style.setAttribute( 'type', 'text/css' );
         style.setAttribute( 'rel', 'stylesheet');
 
-        style.href = initialSettings.scriptLocation + CSS_FILE_PATH;
+        style.href = initialSettings.scriptLocation + CSS_FILENAME;
 
         document.head.appendChild( style );
 
@@ -150,7 +155,7 @@ var codexSpecial = (function() {
     * @private
     * Interface maker
     */
-    function makeUI_() {
+    function makeUI_ () {
 
         /**
         * 0. Init dictionary
@@ -321,7 +326,7 @@ var codexSpecial = (function() {
 
         }
 
-        dropTextSize_();
+        dropTextSize_ ();
 
         nodes.textSizeSwitcher.innerHTML = '<i class="codex-special__toolbar_icon"></i> ' + texts.decreaseSize;
 
@@ -341,6 +346,31 @@ var codexSpecial = (function() {
         nodes.textSizeSwitcher.innerHTML = '<i class="codex-special__toolbar_icon"></i> ' + texts.increaseSize;
 
         localStorage.removeItem('codex-special__textSize');
+
+    }
+
+    function getScriptLocation () {
+
+        var scriptsList = document.getElementsByTagName('script');
+
+        for (tag in scriptsList)
+        {
+            if (typeof scriptsList[tag] != 'object')
+            {
+                continue;
+            }
+
+            var scriptSrc = scriptsList[tag].src;
+
+            if (scriptSrc.indexOf('codex-special') != -1)
+            {
+                var lastSlashPosition = scriptSrc.lastIndexOf('/');
+
+                scriptDir = scriptSrc.substr(0, lastSlashPosition + 1);
+
+                initialSettings.scriptLocation = scriptDir;
+            }
+        }
 
     }
 
