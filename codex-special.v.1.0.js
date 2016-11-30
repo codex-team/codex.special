@@ -44,7 +44,7 @@ var codexSpecial = (function() {
     /**
     * Required stylesheets URL
     */
-    var CSS_FILE_PATH = 'codex-special.v.1.0.min.css';
+    var CSS_FILE_PATH = 'codex-special.v.1.0.css';
 
     /**
     * Path to codex-special
@@ -77,7 +77,8 @@ var codexSpecial = (function() {
     var initialSettings = {
 
         blockId : null,
-        lang : 'ru'
+        lang : 'ru',
+        position : 'top-right'
 
     };
 
@@ -246,6 +247,15 @@ var codexSpecial = (function() {
         }
 
         nodes.toolbar.classList.add('codex-special__toolbar_excluded');
+
+        if (initialSettings.position){
+            switch (initialSettings.position) {
+                case 'top-right': nodes.toolbar.classList.add('codex-special__position_top', 'codex-special__position_right'); break;
+                case 'top-left': nodes.toolbar.classList.add('codex-special__position_top', 'codex-special__position_left'); break;
+                case 'bottom-right': nodes.toolbar.classList.add('codex-special__position_bottom', 'codex-special__position_right'); break;
+                case 'bottom-left': nodes.toolbar.classList.add('codex-special__position_bottom', 'codex-special__position_left'); break;
+            }
+        }
 
         document.body.appendChild(nodes.toolbar);
 

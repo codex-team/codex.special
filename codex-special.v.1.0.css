@@ -47,6 +47,26 @@ html body .codex-special__toolbar{
     border-radius: 0 0 3px 3px;
 }
 
+.codex-special__position_top {
+    top: 0 !important;
+    bottom: auto !important;
+}
+
+.codex-special__position_bottom {
+    top: auto !important;
+    bottom: 0 !important;
+}
+
+.codex-special__position_left {
+    left: 3% !important;
+    right: auto !important;
+}
+
+.codex-special__position_right {
+    right: 3% !important;
+    left: auto !important;
+}
+
     .codex-special__toolbar_text {
         display: inline-block;
         vertical-align: middle;
