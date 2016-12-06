@@ -54,10 +54,10 @@ html body .codex-special__toolbar{
         cursor: pointer;
         border-radius: 5px;
     }
-    .codex-special__toolbar_text:hover
-    {
-        color: #3d82c1;
-    }
+        .codex-special__toolbar_text:hover
+        {
+            color: #3d82c1;
+        }
 
     .codex-special__toolbar_icon {
         display: inline-block;
@@ -83,6 +83,11 @@ html body .codex-special__toolbar{
         cursor: pointer;
         float: right;
     }
+        .codex-special__circle:hover {
+            width: 11px;
+            height: 11px;
+            border: 5px solid;
+        }
         .codex-special__circle:not(:first-of-type) {
             margin-right: 5px;
         }
@@ -94,16 +99,16 @@ html body .codex-special__toolbar{
     }
 
     .codex-special__circle_blue {
-        background-color: #36465B;
-        border-color: #C5DFFF;
+        background-color: #36465B !important;
+        border-color: #C5DFFF !important;
     }
     .codex-special__circle_green {
-        background-color: #44E963;
-        border-color: #7C766A;
+        background-color: #44E963 !important;
+        border-color: #7C766A !important;
     }
     .codex-special__circle_white {
-        background-color: #FFF;
-        border-color: #2B2A28;
+        background-color: #FFFFFF !important;
+        border-color: #2B2A28 !important;
     }
 
 
