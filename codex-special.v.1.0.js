@@ -252,10 +252,14 @@ var codexSpecial = (function() {
 
             switch (initialSettings.position) {
                 // 'top-right' is default
-                case 'top-left': nodes.toolbar.classList.add('codex-special__position_top', 'codex-special__position_left'); break;
-                case 'bottom-right': nodes.toolbar.classList.add('codex-special__position_bottom', 'codex-special__position_right'); break;
-                case 'bottom-left': nodes.toolbar.classList.add('codex-special__position_bottom', 'codex-special__position_left'); break;
-                default: nodes.toolbar.classList.add('codex-special__position_top', 'codex-special__position_right'); break;
+                case 'top-left':
+                    nodes.toolbar.classList.add('codex-special__toolbar_top', 'codex-special__toolbar_left'); break;
+                case 'bottom-right':
+                    nodes.toolbar.classList.add('codex-special__toolbar_bottom', 'codex-special__toolbar_right'); break;
+                case 'bottom-left':
+                    nodes.toolbar.classList.add('codex-special__toolbar_bottom', 'codex-special__toolbar_left'); break;
+                default:
+                    nodes.toolbar.classList.add('codex-special__toolbar_top', 'codex-special__toolbar_right'); break;
             }
         }
 
