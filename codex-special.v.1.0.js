@@ -258,8 +258,7 @@ var codexSpecial = (function() {
                     nodes.toolbar.classList.add('codex-special__toolbar_bottom', 'codex-special__toolbar_right'); break;
                 case 'bottom-left':
                     nodes.toolbar.classList.add('codex-special__toolbar_bottom', 'codex-special__toolbar_left'); break;
-                default:
-                    nodes.toolbar.classList.add('codex-special__toolbar_top', 'codex-special__toolbar_right'); break;
+                default: break;
             }
         }
 
