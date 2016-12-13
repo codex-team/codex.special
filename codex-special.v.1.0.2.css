@@ -105,14 +105,12 @@ html body .codex-special__toolbar{
     .codex-special__circle:not(:first-of-type) {
         margin-right: 5px;
     }
-        .codex-special__circle:hover {
-            width: 11px;
-            height: 11px;
-            border-width: 5px;
-        }
-        .codex-special__circle:not(:first-of-type) {
-            margin-right: 5px;
-        }
+    
+    .codex-special__circle:hover {
+        width: 11px;
+        height: 11px;
+        border-width: 5px;
+    }
 
     .codex-special__circle_disabled {}
 
