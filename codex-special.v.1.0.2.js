@@ -4,7 +4,7 @@
 * @author Codex Team — ifmo.su
 *   Vitaly Guryn    https://github.com/talyguryn
 *   Savchenko Petr  https://github.com/neSpecc
-* @version 1.0
+* @version 1.0.2
 */
 var codexSpecial = (function() {
 
@@ -44,7 +44,7 @@ var codexSpecial = (function() {
     /**
     * Required stylesheets URL
     */
-    var CSS_FILE_PATH = 'codex-special.v.1.0.css';
+    var CSS_FILE_PATH = 'codex-special.v.1.0.2.css';
 
     /**
     * Path to codex-special
