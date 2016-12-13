@@ -44,7 +44,7 @@ var codexSpecial = (function() {
     /**
     * Required stylesheets URL
     */
-    var CSS_FILE_PATH = 'codex-special.v.1.0.2.css';
+    var CSS_FILE_PATH = 'codex-special.v.1.0.2.min.css';
 
     /**
     * Path to codex-special
