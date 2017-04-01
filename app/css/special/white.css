@@ -1,0 +1,25 @@
+/**
+* White version styles
+*/
+body.special-white,
+.special-white div,
+.special-white aside,
+.special-white footer,
+.special-white header,
+.special-white form,
+.special-white article {
+    background-color: #121213 !important;
+    background-image: none !important;
+    color: #fff !important;
+}
+
+.special-white input,
+.special-white textarea {
+    background-color: #1d1d1d !important;
+    color: #fff !important;
+}
+
+.special-white a {
+    color: #6b9dff !important;
+    text-decoration: underline !important;
+}

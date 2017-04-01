@@ -7,7 +7,7 @@ CodeX.Special сделает информацию на вашем сайте б�
 Сохраните файлы модуля и подключите js-скрипт.
 
 ```html
-<script src="/public/extensions/codex.special/codex-special.v.1.0.2.min.js"></script>
+<script src="/public/extensions/codex.special/codex-special.min.js"></script>
 ```
 
 Для того, чтобы запустить модуль, достаточно вызвать метод `init()`. Файл стилей будут подгружен автоматически.
@@ -67,5 +67,3 @@ codexSpecial.init({
 ## Разработка
 Репозиторий — https://github.com/codex-team/codex.special
 Codex Team — https://ifmo.su
-
-bl

@@ -1,0 +1,35 @@
+{
+  "name": "codex-special",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Module for making high-contrast version of websites.",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codex-team/codex.special.git"
+  },
+  "keywords": [
+    "codex",
+    "organizations",
+    "high-contrast"
+  ],
+  "author": "CodeX Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codex-team/codex.special/issues"
+  },
+  "homepage": "https://github.com/codex-team/codex.special#readme",
+  "devDependencies": {
+    "css-loader": "^0.26.1",
+    "eslint": "^3.12.2",
+    "eslint-loader": "^1.6.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.2.1",
+    "postcss-smart-import": "^0.6.6",
+    "stylelint-webpack-plugin": "^0.4.2",
+    "webpack": "^1.14.0"
+  }
+}

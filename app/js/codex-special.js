@@ -1,71 +1,51 @@
-/**
-* Speical contrast verison for websites
-* @link https://github.com/codex-team/codex.special
-* @author Codex Team — ifmo.su
-*   Vitaly Guryn    https://github.com/talyguryn
-*   Savchenko Petr  https://github.com/neSpecc
-* @version 1.0.2
-*/
-var codexSpecial = (function() {
+module.exports = (function () {
 
     /**
-    * Multilanguage support
+    * @private Multilanguage support
     */
-    var DICT = {
-
-        ru : {
-            increaseSize : 'Увеличить размер',
-            decreaseSize : 'Уменьшить размер'
-        },
-
-        en : {
-            increaseSize : 'Increase size',
-            decreaseSize : 'Decrease size'
-        }
-
-    };
-
-    /**
-    * Texts from dictionary
-    */
-    var texts = null;
-
-    /**
-    * @private static nodes
-    */
-    var nodes = {
-
-    	toolbar : null,
-        colorSwitchers   : [],
-        textSizeSwitcher : null
-
-    };
-
-    /**
-    * Required stylesheets URL
-    */
-    var CSS_FILE_PATH = 'codex-special.v.1.0.2.min.css';
-
-    /**
-    * Path to codex-special
-    * Generated automatically
-    */
-    var pathToExtension;
+    var DICT = require('./dictionary');
 
     /**
     * @private CSS classes config
     */
-  	var classes = {
+    var classes = require('./classes');
 
-        colorSwitchers : {
-            blue     : 'special-blue',
-            green    : 'special-green',
-            white    : 'special-white',
-        },
+    /**
+    * @private Texts from dictionary
+    */
+    var texts = null;
 
-        textSizeIncreased : 'special-big'
+    /**
+    * @private Static nodes
+    */
+    var nodes = {
 
-  	};
+        toolbar          : null,
+        colorSwitchers   : [],
+        textSizeSwitcher : null,
+
+    };
+
+    /**
+    * @private Required stylesheets URL
+    */
+    var CSS_FILE_PATH = 'codex-special.min.css';
+    var JS_FILE_PART_OF_NAME_TO_GET_RELATIVE_PATH = 'codex-special.min.js';
+
+    /**
+    * @private Path to codex-special. Generated automatically
+    */
+    var pathToExtension;
+
+    /**
+     * @private Names for states saved in localStorage
+     */
+    var localStorageBadges = {
+
+        textSise : 'codex-special__text-size',
+        color    : 'codex-special__color',
+
+    };
 
     /**
     * Settings for codexSpecial block
@@ -76,9 +56,9 @@ var codexSpecial = (function() {
     */
     var initialSettings = {
 
-        blockId : null,
-        lang : 'ru',
-        position : 'top-right'
+        blockId  : null,
+        lang     : 'ru',
+        position : 'top-right',
 
     };
 
@@ -95,7 +75,6 @@ var codexSpecial = (function() {
     *                   otherwise, it will be fixed in window
     */
     _codexSpecial.prototype.init = function (settings) {
-
 
         /**
         * 1. Save initial settings to the private property
@@ -149,13 +128,14 @@ var codexSpecial = (function() {
 
         var scriptsList = document.getElementsByTagName('script'),
             scriptSrc,
+            scriptDir,
             lastSlashPosition;
 
-        for (var i = 1; i < scriptsList.length; i++) {
+        for (var i = 0; i < scriptsList.length; i++) {
 
             scriptSrc = scriptsList[i].src;
 
-            if (scriptSrc.indexOf('codex-special') != -1) {
+            if (scriptSrc.indexOf(JS_FILE_PART_OF_NAME_TO_GET_RELATIVE_PATH) != -1) {
 
                 lastSlashPosition = scriptSrc.lastIndexOf('/');
 
@@ -164,13 +144,13 @@ var codexSpecial = (function() {
                 return scriptDir;
 
             }
+
         }
 
     }
 
     /**
-    * @private
-    * Loads requeired stylesheet
+    * @private Loads requeired stylesheet
     */
     function loadStyles_() {
 
@@ -186,8 +166,7 @@ var codexSpecial = (function() {
     }
 
     /**
-    * @private
-    * Interface maker
+    * @private Interface maker
     */
     function makeUI_() {
 
@@ -213,7 +192,7 @@ var codexSpecial = (function() {
         */
         for (var color in classes.colorSwitchers) {
 
-            circle = draw_.colorSwitcher(color);
+            var circle = draw_.colorSwitcher(color);
 
             circle.dataset.style = color;
 
@@ -231,36 +210,53 @@ var codexSpecial = (function() {
     }
 
     /**
-    * @private
-    * Toolbar positionin method
+    * @private Toolbar positioning method
     */
     function appendPanel_() {
 
-        if (initialSettings.blockId){
+        if (initialSettings.blockId) {
 
             document.getElementById(initialSettings.blockId).appendChild(nodes.toolbar);
 
-            nodes.toolbar.classList.add('codex-special__toolbar_included');
+            nodes.toolbar.classList.add(classes.toolbar.state.included);
 
             return;
 
         }
 
-        nodes.toolbar.classList.add('codex-special__toolbar_excluded');
+        nodes.toolbar.classList.add(classes.toolbar.state.excluded);
 
         if (initialSettings.position) {
 
             switch (initialSettings.position) {
-                // 'top-right' is default
+
                 case 'top-left':
-                    nodes.toolbar.classList.add('codex-special__toolbar_top', 'codex-special__toolbar_left'); break;
+                    nodes.toolbar.classList.add(
+                        classes.toolbar.position.top,
+                        classes.toolbar.position.left
+                    ); break;
+
                 case 'bottom-right':
-                    nodes.toolbar.classList.add('codex-special__toolbar_bottom', 'codex-special__toolbar_right'); break;
+                    nodes.toolbar.classList.add(
+                        classes.toolbar.position.bottom,
+                        classes.toolbar.position.right
+                    ); break;
+
                 case 'bottom-left':
-                    nodes.toolbar.classList.add('codex-special__toolbar_bottom', 'codex-special__toolbar_left'); break;
+                    nodes.toolbar.classList.add(
+                        classes.toolbar.position.bottom,
+                        classes.toolbar.position.left
+                    ); break;
+
+                // 'top-right'
                 default:
-                    nodes.toolbar.classList.add('codex-special__toolbar_top', 'codex-special__toolbar_right'); break;
+                    nodes.toolbar.classList.add(
+                        classes.toolbar.position.top,
+                        classes.toolbar.position.right
+                    ); break;
+
             }
+
         }
 
         document.body.appendChild(nodes.toolbar);
@@ -268,11 +264,11 @@ var codexSpecial = (function() {
     }
 
     /**
-    * @private
+    * @private Add click listeners to text and circles
     */
     function addListeners_() {
 
-        nodes.colorSwitchers.map(function(switcher, index) {
+        nodes.colorSwitchers.map(function (switcher, index) {
 
             switcher.addEventListener('click', changeColor_, false);
 
@@ -283,17 +279,17 @@ var codexSpecial = (function() {
     }
 
     /**
-    * @private
+    * @private Get special setting params from localStorage and enable it
     */
     function loadSettings_() {
 
-        var color    = localStorage.getItem('codex-special__color'),
-            textSize = localStorage.getItem('codex-special__textSize'),
+        var color    = window.localStorage.getItem(localStorageBadges.color),
+            textSize = window.localStorage.getItem(localStorageBadges.textSize),
             textSizeSwitcher;
 
         if (color) {
 
-            nodes.colorSwitchers.map(function(switcher, index) {
+            nodes.colorSwitchers.map(function (switcher, index) {
 
                 if (switcher.dataset.style == color) {
 
@@ -305,21 +301,22 @@ var codexSpecial = (function() {
 
         }
 
-        if (textSize){
+        if (textSize) {
 
             textSizeSwitcher = nodes.textSizeSwitcher;
 
             changeTextSize_.call(textSizeSwitcher);
+
         }
 
     }
 
     /**
-    * @private
+    * @private Set special color scheme
     */
     function changeColor_() {
 
-        if (this.classList.contains('codex-special__circle_enabled')) {
+        if (this.classList.contains(classes.circle.state.enabled)) {
 
             return dropColor_();
 
@@ -327,45 +324,45 @@ var codexSpecial = (function() {
 
         dropColor_();
 
-        nodes.colorSwitchers.map(function(switcher, index) {
+        nodes.colorSwitchers.map(function (switcher, index) {
 
-            switcher.classList.add('codex-special__circle_disabled');
+            switcher.classList.add(classes.circle.state.disabled);
 
         });
 
-        this.classList.remove('codex-special__circle_disabled');
+        this.classList.remove(classes.circle.state.disabled);
 
-        this.classList.add('codex-special__circle_enabled');
+        this.classList.add(classes.circle.state.enabled);
 
-        localStorage.setItem('codex-special__color', this.dataset.style);
+        window.localStorage.setItem(localStorageBadges.color, this.dataset.style);
 
-    	document.body.classList.add(classes.colorSwitchers[this.dataset.style]);
+        document.body.classList.add(classes.colorSwitchers[this.dataset.style]);
 
     }
 
     /**
-    * @private
+    * @private Drop special color scheme
     */
     function dropColor_() {
 
-    	for (var color in classes.colorSwitchers){
+        for (var color in classes.colorSwitchers) {
 
-    		document.body.classList.remove(classes.colorSwitchers[color]);
+            document.body.classList.remove(classes.colorSwitchers[color]);
 
         }
 
-        nodes.colorSwitchers.map(function(switcher, index) {
+        nodes.colorSwitchers.map(function (switcher, index) {
 
-            switcher.classList.remove('codex-special__circle_disabled', 'codex-special__circle_enabled');
+            switcher.classList.remove(classes.circle.state.disabled, classes.circle.state.enabled);
 
         });
 
-        localStorage.removeItem('codex-special__color');
+        window.localStorage.removeItem(localStorageBadges.color);
 
     }
 
     /**
-    * @private
+    * @private Set increased text size
     */
     function changeTextSize_() {
 
@@ -377,30 +374,29 @@ var codexSpecial = (function() {
 
         dropTextSize_();
 
-        nodes.textSizeSwitcher.innerHTML = '<i class="codex-special__toolbar_icon"></i> ' + texts.decreaseSize;
+        nodes.textSizeSwitcher.innerHTML = '<i class="' + classes.iconButton.elem + '"></i> ' + texts.decreaseSize;
 
-        localStorage.setItem('codex-special__textSize', 'big');
+        window.localStorage.setItem(localStorageBadges.textSize, 'big');
 
         document.body.classList.add(classes.textSizeIncreased);
 
     }
 
     /**
-    * @private
+    * @private Drop increased text size
     */
     function dropTextSize_() {
 
         document.body.classList.remove(classes.textSizeIncreased);
 
-        nodes.textSizeSwitcher.innerHTML = '<i class="codex-special__toolbar_icon"></i> ' + texts.increaseSize;
+        nodes.textSizeSwitcher.innerHTML = '<i class="' + classes.iconButton.elem + '"></i> ' + texts.increaseSize;
 
-        localStorage.removeItem('codex-special__textSize');
+        window.localStorage.removeItem(localStorageBadges.textSize);
 
     }
 
     /**
-    * @private
-    * HTML elements maker
+    * @private HTML elements maker
     */
     var draw_ = {
 
@@ -419,7 +415,7 @@ var codexSpecial = (function() {
         */
         toolbar : function () {
 
-            return draw_.element('DIV', 'codex-special__toolbar');
+            return draw_.element('DIV', classes.toolbar.elem);
 
         },
 
@@ -429,9 +425,9 @@ var codexSpecial = (function() {
         */
         colorSwitcher : function (type) {
 
-            var colorSwitcher = draw_.element('SPAN', 'codex-special__circle');
+            var colorSwitcher = draw_.element('SPAN', classes.circle.elem);
 
-            colorSwitcher.classList.add('codex-special__circle_' + type);
+            colorSwitcher.classList.add(classes.circle.prefix + type);
 
             return colorSwitcher;
 
@@ -442,9 +438,9 @@ var codexSpecial = (function() {
         */
         textSizeSwitcher : function () {
 
-            var textToggler = draw_.element('SPAN', 'codex-special__toolbar_text');
+            var textToggler = draw_.element('SPAN', classes.textButton.elem);
 
-            textToggler.innerHTML = '<i class="codex-special__toolbar_icon"></i> ' + texts.increaseSize;
+            textToggler.innerHTML = '<i class="' + classes.iconButton.elem + '"></i> ' + texts.increaseSize;
 
             return textToggler;
 
