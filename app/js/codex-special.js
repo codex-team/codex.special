@@ -1,23 +1,27 @@
 module.exports = (function () {
 
     /**
-    * @private Multilanguage support
-    */
+     * Multilanguage support
+     * @private
+     */
     var DICT = require('./dictionary');
 
     /**
-    * @private CSS classes config
-    */
+     * CSS classes config
+     * @private
+     */
     var classes = require('./classes');
 
     /**
-    * @private Texts from dictionary
-    */
+     * Texts from dictionary
+     * @private
+     */
     var texts = null;
 
     /**
-    * @private Static nodes
-    */
+     * Static nodes
+     * @private
+     */
     var nodes = {
 
         toolbar          : null,
@@ -27,18 +31,21 @@ module.exports = (function () {
     };
 
     /**
-    * @private Required stylesheets URL
-    */
+     * Required stylesheets URL
+     * @private
+     */
     var CSS_FILE_PATH = 'codex-special.min.css';
     var JS_FILE_PART_OF_NAME_TO_GET_RELATIVE_PATH = 'codex-special.min.js';
 
     /**
-    * @private Path to codex-special. Generated automatically
-    */
+     * Path to codex-special. Generated automatically
+     * @private
+     */
     var pathToExtension;
 
     /**
-     * @private Names for states saved in localStorage
+     * Names for states saved in localStorage
+     * @private
      */
     var localStorageBadges = {
 
@@ -48,12 +55,12 @@ module.exports = (function () {
     };
 
     /**
-    * Settings for codexSpecial block
-    *
-    * blockId — at the end of which block you want to place codexSpecial
-    * scriptLocation — path to codexSpecial styles file
-    * lang — language for the codexSpecial from DICT_
-    */
+     * Settings for codexSpecial block
+     *
+     * blockId — at the end of which block you want to place codexSpecial
+     * scriptLocation — path to codexSpecial styles file
+     * lang — language for the codexSpecial from DICT_
+     */
     var initialSettings = {
 
         blockId  : null,
@@ -63,51 +70,41 @@ module.exports = (function () {
     };
 
     /**
-    * @constructor
-    * Public methods and properties
-    */
+     * Public methods and properties
+     * @constructor
+     */
     var _codexSpecial = function () {};
 
     /**
-    * Public initialization method
-    * @param {Object} settings are
-    *       - blockId - if passed, toolbar will be appended to this block
-    *                   otherwise, it will be fixed in window
-    */
+     * Public initialization method
+     * @param {Object} settings are
+     *       - blockId - if passed, toolbar will be appended to this block
+     *                   otherwise, it will be fixed in window
+     */
     _codexSpecial.prototype.init = function (settings) {
 
-        /**
-        * 1. Save initial settings to the private property
-        */
+        /** 1. Save initial settings to the private property */
         fillSettings_(settings);
 
-        /**
-        * 2. Prepare stylesheets
-        */
+        /** 2. Prepare stylesheets */
         loadStyles_();
 
-        /**
-        * 3. Make interface
-        */
+        /** 3. Make interface */
         makeUI_();
 
-        /**
-        * 4. Add listeners
-        */
+        /** 4. Add listeners */
         addListeners_();
 
-        /**
-        * 5. Check localStorage for settings
-        */
+        /** 5. Check localStorage for settings */
         loadSettings_();
 
     };
 
 
     /**
-    * @private
-    * Fills initialSettings
-    */
+     * Fills initialSettings
+     * @private
+     */
     function fillSettings_(settings) {
 
         for (var param in settings) {
@@ -121,9 +118,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private
-    * Gets codex-special path
-    */
+     * Gets codex-special path
+     * @private
+     */
     function getScriptLocation() {
 
         var scriptsList = document.getElementsByTagName('script'),
@@ -150,8 +147,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Loads requeired stylesheet
-    */
+     * Loads requiered stylesheet
+     * @private
+     */
     function loadStyles_() {
 
         var style = document.createElement('link');
@@ -166,30 +164,22 @@ module.exports = (function () {
     }
 
     /**
-    * @private Interface maker
-    */
+     * Interface maker
+     * @private
+     */
     function makeUI_() {
 
-        /**
-        * 0. Init dictionary
-        */
+        /** 0. Init dictionary */
         texts = DICT[initialSettings.lang];
 
-        /**
-        * 1. Make Toolbar and Switchers
-        */
+        /** 1. Make Toolbar and Switchers */
+        var toolbar          = draw_.toolbar(),
+            textSizeSwitcher = draw_.textSizeSwitcher();
 
-        var toolbar = draw_.toolbar();
-        var textSizeSwitcher = draw_.textSizeSwitcher();
-
-        /**
-        * 2. Append text size switcher
-        */
+        /** 2. Append text size switcher */
         toolbar.appendChild(textSizeSwitcher);
 
-        /**
-        * 3. Append color switchers
-        */
+        /** 3. Append color switchers */
         for (var color in classes.colorSwitchers) {
 
             var circle = draw_.colorSwitcher(color);
@@ -210,8 +200,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Toolbar positioning method
-    */
+     * Toolbar positioning method
+     * @private
+     */
     function appendPanel_() {
 
         if (initialSettings.blockId) {
@@ -264,8 +255,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Add click listeners to text and circles
-    */
+     * Add click listeners to text and circles
+     * @private
+     */
     function addListeners_() {
 
         nodes.colorSwitchers.map(function (switcher, index) {
@@ -279,8 +271,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Get special setting params from localStorage and enable it
-    */
+     * Get special setting params from localStorage and enable it
+     * @private
+     */
     function loadSettings_() {
 
         var color    = window.localStorage.getItem(localStorageBadges.color),
@@ -312,8 +305,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Set special color scheme
-    */
+     * Set special color scheme
+     * @private
+     */
     function changeColor_() {
 
         if (this.classList.contains(classes.circle.state.enabled)) {
@@ -341,8 +335,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Drop special color scheme
-    */
+     * Drop special color scheme
+     * @private
+     */
     function dropColor_() {
 
         for (var color in classes.colorSwitchers) {
@@ -362,8 +357,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Set increased text size
-    */
+     * Set increased text size
+     * @private
+     */
     function changeTextSize_() {
 
         if (document.body.classList.contains(classes.textSizeIncreased)) {
@@ -383,8 +379,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private Drop increased text size
-    */
+     * Drop increased text size
+     * @private
+     */
     function dropTextSize_() {
 
         document.body.classList.remove(classes.textSizeIncreased);
@@ -396,8 +393,9 @@ module.exports = (function () {
     }
 
     /**
-    * @private HTML elements maker
-    */
+     * HTML elements maker
+     * @private
+     */
     var draw_ = {
 
         element : function (newElement, newClass) {
@@ -411,8 +409,8 @@ module.exports = (function () {
         },
 
         /**
-        * Codex special toolbar
-        */
+         * Codex special toolbar
+         */
         toolbar : function () {
 
             return draw_.element('DIV', classes.toolbar.elem);
@@ -420,9 +418,9 @@ module.exports = (function () {
         },
 
         /**
-        * Makes color switcher
-        * @param {string} type  - color string identifier
-        */
+         * Makes color switcher
+         * @param {string} type  - color string identifier
+         */
         colorSwitcher : function (type) {
 
             var colorSwitcher = draw_.element('SPAN', classes.circle.elem);
@@ -434,8 +432,8 @@ module.exports = (function () {
         },
 
         /**
-        * Makes text size toggler
-        */
+         * Makes text size toggler
+         */
         textSizeSwitcher : function () {
 
             var textToggler = draw_.element('SPAN', classes.textButton.elem);

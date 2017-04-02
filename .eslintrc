@@ -3,6 +3,7 @@
     "parserOptions": {
         "ecmaVersion": 6,
     },
+
     "rules": {
 
         "arrow-spacing": [2, {
@@ -59,6 +60,7 @@
         "newline-after-var": [1, "always"],
 
     },
+
     "globals":{
         "document": true,
         "module": true,
@@ -66,7 +68,6 @@
         "window": true,
         "console" : true,
         "VERSION" : true,
-        "Promise" : true,
         "codexSpecial": true,
     }
 }

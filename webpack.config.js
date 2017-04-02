@@ -40,16 +40,16 @@ module.exports = {
     },
 
     /**
-    * PostCSS configuration
-    */
+     * PostCSS configuration
+     */
     postcss: function () {
 
         return [
 
-            /** Позволяет использовать CSSnext во вложенных файлах*/
+            /** Позволяет использовать CSSnext во вложенных файлах */
             require('postcss-smart-import'),
 
-            /** Позволяет использовать новые возможности CSS: переменные, фукнции и тд*/
+            /** Позволяет использовать новые возможности CSS: переменные, фукнции и тд */
             require('postcss-cssnext'),
 
         ];

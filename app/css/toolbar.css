@@ -84,8 +84,8 @@ html body .codex-special__toolbar {
 }
 
 /**
-* Active state toolbar
-*/
+ * Active state toolbar
+ */
 .special-green .codex-special__toolbar,
 .special-white .codex-special__toolbar,
 .special-blue .codex-special__toolbar,
@@ -103,8 +103,8 @@ html body .codex-special__toolbar {
 }
 
 /**
-* Mobile view styles
-*/
+ * Mobile view styles
+ */
 @media all and (max-width: 1000px) {
     .codex-special__toolbar--excluded {
         top: auto;

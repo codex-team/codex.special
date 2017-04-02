@@ -1,6 +1,6 @@
 /**
-* Classnames for elements and states
-*/
+ * Classnames for elements and states
+ */
 
 module.exports = {
 

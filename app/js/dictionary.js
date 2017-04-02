@@ -1,3 +1,7 @@
+/**
+ * Dictionary object
+ */
+
 module.exports = {
 
     ru : {
