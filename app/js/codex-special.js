@@ -38,12 +38,6 @@ module.exports = (function () {
     var JS_FILE_PART_OF_NAME_TO_GET_RELATIVE_PATH = 'codex-special.min.js';
 
     /**
-     * Path to codex-special. Generated automatically
-     * @private
-     */
-    var pathToExtension;
-
-    /**
      * Names for states saved in localStorage
      * @private
      */
@@ -86,16 +80,13 @@ module.exports = (function () {
         /** 1. Save initial settings to the private property */
         fillSettings_(settings);
 
-        /** 2. Prepare stylesheets */
-        loadStyles_();
-
-        /** 3. Make interface */
+        /** 2. Make interface */
         makeUI_();
 
-        /** 4. Add listeners */
+        /** 3. Add listeners */
         addListeners_();
 
-        /** 5. Check localStorage for settings */
+        /** 4. Check localStorage for settings */
         loadSettings_();
 
     };
@@ -112,8 +103,6 @@ module.exports = (function () {
             initialSettings[param] = settings[param];
 
         }
-
-        pathToExtension = getScriptLocation();
 
     }
 
@@ -152,16 +141,17 @@ module.exports = (function () {
      */
     function loadStyles_() {
 
-        var style = document.createElement('link');
+        var pathToExtension = getScriptLocation(),
+            style = document.createElement('LINK');
 
         style.setAttribute('type', 'text/css');
         style.setAttribute('rel', 'stylesheet');
 
         style.href = pathToExtension + CSS_FILE_PATH;
 
-        document.head.appendChild( style );
+        document.head.appendChild(style);
 
-    }
+    };
 
     /**
      * Interface maker
@@ -445,6 +435,9 @@ module.exports = (function () {
         }
 
     };
+
+    /** Prepare stylesheets */
+    loadStyles_();
 
     return new _codexSpecial();
 
