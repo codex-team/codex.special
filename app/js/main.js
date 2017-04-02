@@ -5,7 +5,7 @@
  * @author Codex Team — ifmo.su
  *   Vitaly Guryn    https://github.com/talyguryn
  *   Savchenko Petr  https://github.com/neSpecc
- * @version 1.1.0
+ * @version 1.1.1
  */
 
 /** Styles */
