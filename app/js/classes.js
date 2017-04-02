@@ -22,10 +22,10 @@ module.exports = {
         },
 
         position : {
-            top    : 'codex-special__toolbar-position--top',
-            bottom : 'codex-special__toolbar-position--bottom',
-            left   : 'codex-special__toolbar-position--left',
-            right  : 'codex-special__toolbar-position--right',
+            top    : 'codex-special__toolbar--position-top',
+            bottom : 'codex-special__toolbar--position-bottom',
+            left   : 'codex-special__toolbar--position-left',
+            right  : 'codex-special__toolbar--position-right',
         },
 
     },

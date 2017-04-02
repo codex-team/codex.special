@@ -21,26 +21,26 @@ html body .codex-special__toolbar {
     border: 1px solid #f2f4f8;
 }
 
-.codex-special__toolbar-position--top {
+.codex-special__toolbar--position-top {
     top: 0;
     bottom: auto;
     border-radius: 0 0 3px 3px;
     border-top: 0;
 }
 
-.codex-special__toolbar-position--bottom {
+.codex-special__toolbar--position-bottom {
     top: auto;
     bottom: 0;
     border-radius: 3px 3px 0 0;
     border-bottom: 0;
 }
 
-.codex-special__toolbar-position--left {
+.codex-special__toolbar--position-left {
     left: 3%;
     right: auto;
 }
 
-.codex-special__toolbar-position--right {
+.codex-special__toolbar--position-right {
     right: 3%;
     left: auto;
 }
