@@ -1,0 +1,21 @@
+/**
+ * Big text version style
+ */
+.special-big div,
+.special-big input,
+.special-big aside {
+    font-size: 1.2em !important;
+}
+
+.special-big ul,
+.special-big ol {
+    font-size: 1em !important;
+}
+
+.special-big a {
+    font-size: 1em !important;
+}
+
+.special-big article {
+    font-size: 1.1em !important;
+}

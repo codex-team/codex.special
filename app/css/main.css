@@ -1,0 +1,10 @@
+/** Special versions styles */
+@import url('special/blue.css');
+@import url('special/green.css');
+@import url('special/white.css');
+@import url('special/big.css');
+
+/** Core */
+@import url('font.css');
+@import url('toolbar.css');
+@import url('circles.css');

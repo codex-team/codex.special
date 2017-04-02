@@ -1,0 +1,25 @@
+/**
+ * Green version styles
+ */
+body.special-green,
+.special-green div,
+.special-green aside,
+.special-green footer,
+.special-green header,
+.special-green form,
+.special-green article {
+    background-color: #2b2924 !important;
+    background-image: none !important;
+    color: #10f13a !important;
+}
+
+.special-green input,
+.special-green textarea {
+    background-color: #211f1a !important;
+    color: #44e963 !important;
+}
+
+.special-green a {
+    color: #beff5e !important;
+    text-decoration: underline !important;
+}

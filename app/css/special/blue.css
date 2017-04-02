@@ -1,0 +1,25 @@
+/**
+ * Blue version styles
+ */
+body.special-blue,
+.special-blue div,
+.special-blue aside,
+.special-blue footer,
+.special-blue header,
+.special-blue form,
+.special-blue article {
+    background-color: #b9d8ff !important;
+    background-image: none !important;
+    color: #152b48 !important;
+}
+
+.special-blue input,
+.special-blue textarea {
+    background-color: #c5dfff !important;
+    color: #36465b !important;
+}
+
+.special-blue a {
+    color: #005db3 !important;
+    text-decoration: underline !important;
+}
