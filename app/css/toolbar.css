@@ -1,5 +1,5 @@
 .codex-special__toolbar {
-    padding: 15px;
+    padding: 15px !important;
     background-color: white;
     white-space: nowrap;
     z-index: 9999;
@@ -115,7 +115,8 @@ html body .codex-special__toolbar {
         border: 1px solid #f2f4f8;
     }
 
-    body {
+    /** rule for body */
+    .codex-special--excluded {
         padding-bottom: 50px;
     }
 }
