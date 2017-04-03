@@ -197,14 +197,23 @@ module.exports = (function () {
 
         if (initialSettings.blockId) {
 
-            document.getElementById(initialSettings.blockId).appendChild(nodes.toolbar);
+            var blockHolder = document.getElementById(initialSettings.blockId);
 
-            nodes.toolbar.classList.add(classes.toolbar.state.included);
+            if (blockHolder) {
 
-            return;
+                blockHolder.appendChild(nodes.toolbar);
+
+                nodes.toolbar.classList.add(classes.toolbar.state.included);
+
+                return;
+
+            }
+
+            initialSettings.blockId = '';
 
         }
 
+        document.body.classList.add(classes.body.excludeModificator);
         nodes.toolbar.classList.add(classes.toolbar.state.excluded);
 
         if (initialSettings.position) {

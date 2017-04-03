@@ -55,4 +55,10 @@ module.exports = {
 
     },
 
+    body : {
+
+        excludeModificator : 'codex-special--excluded',
+
+    },
+
 };
