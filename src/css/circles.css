@@ -8,7 +8,6 @@
     border-radius: 50%;
     cursor: pointer;
     float: right;
-    transition: all 50ms ease-in;
 }
 
 .codex-special__circle:not(:first-of-type) {
