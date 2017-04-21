@@ -46,10 +46,10 @@ module.exports = {
 
         return [
 
-            /** Позволяет использовать CSSnext во вложенных файлах */
+            /** Allows using CSSnet for included files */
             require('postcss-smart-import'),
 
-            /** Позволяет использовать новые возможности CSS: переменные, фукнции и тд */
+            /** Allows using future capabilities: variables, functions */
             require('postcss-cssnext'),
 
         ];
@@ -58,7 +58,7 @@ module.exports = {
 
     plugins: [
 
-        /** Минифицируем CSS и JS */
+        /** Minify CSS and JS */
         new webpack.optimize.UglifyJsPlugin({
             /** Disable warning messages. Cant disable uglify for 3rd party libs such as html-janitor */
             compress: {
@@ -69,10 +69,10 @@ module.exports = {
         /** Block build if errors found */
         new webpack.NoErrorsPlugin(),
 
-        /** Вырезает CSS сборку в отдельный файл */
+        /** Put CSS into external bundle */
         new ExtractTextPlugin(outputFiles['css']),
 
-        /** Проверка синтаксиса CSS */
+        /** Check CSS code style */
         new StyleLintPlugin({
             context : './src/css/',
             files : entryFiles['css'],
@@ -82,11 +82,11 @@ module.exports = {
 
     devtool: 'source-map',
 
-    /** Пересборка при изменениях */
+    /** Auto rebuld */
     watch: true,
     watchOptions: {
 
-        /** Таймаут перед пересборкой */
+        /** Timeout before build */
         aggragateTimeout: 50
     }
 };
