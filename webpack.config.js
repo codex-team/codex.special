@@ -7,7 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StyleLintPlugin   = require('stylelint-webpack-plugin');
 
 var entryFiles = {
-    'js' : './app/js/main.js',
+    'js' : './src/js/main.js',
     'css' : 'main.css',
 };
 
@@ -74,7 +74,7 @@ module.exports = {
 
         /** Проверка синтаксиса CSS */
         new StyleLintPlugin({
-            context : './app/css/',
+            context : './src/css/',
             files : entryFiles['css'],
         }),
 

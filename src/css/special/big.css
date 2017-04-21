@@ -1,0 +1,62 @@
+/**
+ * Big text version style
+ */
+.special-big div {
+    font-size: 20px;
+    line-height: 1.5em;
+}
+
+.special-big div * {
+    font-size: inherit !important;
+    line-height: inherit;
+}
+
+.special-big h1 {
+    font-size: 2em !important;
+    line-height: 1.35em;
+}
+
+.special-big h2 {
+    font-size: 1.5em !important;
+    line-height: 1.35em;
+}
+
+.special-big h3 {
+    font-size: 1.17em !important;
+    line-height: 1.35em;
+}
+
+.special-big h4 {
+    font-size: 1.12em !important;
+    line-height: 1.35em;
+}
+
+.special-big h5 {
+    font-size: 0.83em !important;
+    line-height: 1.35em;
+}
+
+.special-big h6 {
+    font-size: 0.75em !important;
+    line-height: 1.35em;
+}
+
+/*
+.special-big input,
+.special-big aside {
+    font-size: 1.2em !important;
+}
+
+.special-big ul,
+.special-big ol {
+    font-size: 1em !important;
+}
+
+.special-big a {
+    font-size: 1em !important;
+}
+
+.special-big article {
+    font-size: 1.1em !important;
+}
+*/
