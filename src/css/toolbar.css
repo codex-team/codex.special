@@ -3,6 +3,7 @@
     background-color: white;
     white-space: nowrap;
     z-index: 9999;
+    line-height: 21px !important;
 }
 
 /** Wrap for saving font-size in toolbar */
@@ -50,7 +51,6 @@ html body .codex-special__toolbar {
     vertical-align: middle;
     cursor: pointer;
     border-radius: 5px;
-    margin-right: 10px;
 }
 
 .codex-special__toolbar-text:hover {
