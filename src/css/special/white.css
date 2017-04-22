@@ -10,7 +10,7 @@ body.special-white,
 .special-white article {
     background-color: #121213 !important;
     background-image: none !important;
-    color: #666871 !important;
+    color: #d0d0d0 !important;
 }
 
 .special-white * {
@@ -25,9 +25,9 @@ body.special-white,
 }
 
 .special-white a {
-    color: #9ea0ad !important;
+    color: #fff !important;
 }
 
 .special-white a:hover {
-    color: #fff !important;
+    color: #ff960a !important;
 }
