@@ -8,18 +8,27 @@ body.special-blue,
 .special-blue header,
 .special-blue form,
 .special-blue article {
-    background-color: #b9d8ff !important;
+    background-color: #c1d1e6 !important;
     background-image: none !important;
-    color: #152b48 !important;
+    color: #3f5077 !important;
 }
+
+.special-blue * {
+    box-shadow: none;
+    border-color: rgba(136, 136, 136, 0.24) !important;
+}
+
 
 .special-blue input,
 .special-blue textarea {
-    background-color: #c5dfff !important;
+    background-color: #d9e4f7 !important;
     color: #36465b !important;
 }
 
 .special-blue a {
-    color: #005db3 !important;
-    text-decoration: underline !important;
+    color: #082a90 !important;
+}
+
+.special-blue a:hover {
+    color: #0034d2 !important;
 }

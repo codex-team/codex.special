@@ -10,7 +10,12 @@ body.special-white,
 .special-white article {
     background-color: #121213 !important;
     background-image: none !important;
-    color: #fff !important;
+    color: #666871 !important;
+}
+
+.special-white * {
+    border-color: #212121 !important;
+    box-shadow: none;
 }
 
 .special-white input,
@@ -20,6 +25,9 @@ body.special-white,
 }
 
 .special-white a {
-    color: #6b9dff !important;
-    text-decoration: underline !important;
+    color: #9ea0ad !important;
+}
+
+.special-white a:hover {
+    color: #fff !important;
 }
