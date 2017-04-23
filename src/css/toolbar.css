@@ -48,6 +48,7 @@ html body .codex-special__toolbar {
 
 .codex-special__toolbar-text {
     display: inline-block;
+    vertical-align: middle;
     cursor: pointer;
     border-radius: 5px;
 }
