@@ -34,15 +34,15 @@
 
 .codex-special__circle--blue {
     background-color: #36465b;
-    border-color: #c5dfff;
+    border-color: #c5dfff !important;
 }
 
 .codex-special__circle--green {
     background-color: #44e963;
-    border-color: #7c766a;
+    border-color: #7c766a !important;
 }
 
 .codex-special__circle--white {
     background-color: #fff;
-    border-color: #2b2a28;
+    border-color: #2b2a28 !important;
 }
