@@ -5,13 +5,13 @@
 module.exports = {
 
     ru : {
-        increaseSize : 'Увеличить размер',
-        decreaseSize : 'Уменьшить размер',
+        increaseSize : 'Увеличить шрифт',
+        decreaseSize : 'Уменьшить шрифт',
     },
 
     en : {
-        increaseSize : 'Increase size',
-        decreaseSize : 'Decrease size',
+        increaseSize : 'Increase font',
+        decreaseSize : 'Decrease font',
     },
 
 };
