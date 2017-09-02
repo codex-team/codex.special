@@ -1,6 +1,6 @@
 {
   "name": "codex.special",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "private": false,
   "description": "Module for making high-contrast version of websites.",
   "scripts": {
@@ -13,8 +13,10 @@
   },
   "keywords": [
     "codex",
-    "organizations",
-    "high-contrast"
+    "high-contrast",
+    "wca",
+    "module",
+    "organizations"
   ],
   "author": "CodeX Team",
   "license": "MIT",
