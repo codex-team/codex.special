@@ -1,7 +1,7 @@
 {
   "name": "codex.special",
   "version": "1.4.0",
-  "private": true,
+  "private": false,
   "description": "Module for making high-contrast version of websites.",
   "scripts": {
     "build": "webpack"
