@@ -23,7 +23,8 @@ module.exports = {
 
     output: {
         filename: outputFiles['js'],
-        library: 'codexSpecial'
+        library: 'codexSpecial',
+        libraryTarget: 'umd',
     },
 
     module: {
