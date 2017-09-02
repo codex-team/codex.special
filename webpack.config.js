@@ -13,7 +13,7 @@ var entryFiles = {
 
 var outputFiles = {
     'js' : './codex-special.min.js',
-    'css' : './codex-special.min.css',
+    // 'css' : './codex-special.min.css',
 };
 
 
@@ -23,18 +23,20 @@ module.exports = {
 
     output: {
         filename: outputFiles['js'],
-        library: 'codexSpecial'
+        library: 'codexSpecial',
+        libraryTarget: 'umd'
     },
 
     module: {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('css-loader?uglify=1&importLoaders=1!postcss-loader'),
+                loader: 'css-loader?uglify=1&importLoaders=1!postcss-loader'
+                // ExtractTextPlugin.extract('css-loader?uglify=1&importLoaders=1!postcss-loader'),
             },
             {
                 test : /\.js$/,
-                loader: 'eslint-loader',
+                loader: 'eslint-loader'
             }
         ]
     },
@@ -70,7 +72,7 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
 
         /** Put CSS into external bundle */
-        new ExtractTextPlugin(outputFiles['css']),
+        // new ExtractTextPlugin(outputFiles['css']),
 
         /** Check CSS code style */
         new StyleLintPlugin({
