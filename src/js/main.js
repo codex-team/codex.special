@@ -8,8 +8,5 @@
  * @version 1.2.1
  */
 
-/** Styles */
-require('../css/main.css');
-
 /** Script */
 module.exports = require('./codex-special');

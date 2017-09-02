@@ -31,13 +31,6 @@ module.exports = (function () {
     };
 
     /**
-     * Required stylesheets URL
-     * @private
-     */
-    var CSS_FILE_PATH = 'codex-special.min.css';
-    var JS_FILE_PART_OF_NAME_TO_GET_RELATIVE_PATH = 'codex-special.min.js';
-
-    /**
      * Names for states saved in localStorage
      * @private
      */
@@ -107,49 +100,18 @@ module.exports = (function () {
     }
 
     /**
-     * Gets codex-special path
-     * @private
-     */
-    function getScriptLocation() {
-
-        var scriptsList = document.getElementsByTagName('script'),
-            scriptSrc,
-            scriptDir,
-            lastSlashPosition;
-
-        for (var i = 0; i < scriptsList.length; i++) {
-
-            scriptSrc = scriptsList[i].src;
-
-            if (scriptSrc.indexOf(JS_FILE_PART_OF_NAME_TO_GET_RELATIVE_PATH) != -1) {
-
-                lastSlashPosition = scriptSrc.lastIndexOf('/');
-
-                scriptDir = scriptSrc.substr(0, lastSlashPosition + 1);
-
-                return scriptDir;
-
-            }
-
-        }
-
-    }
-
-    /**
      * Loads requiered stylesheet
      * @private
      */
     function loadStyles_() {
 
-        var pathToExtension = getScriptLocation(),
-            style = document.createElement('LINK');
+        var stylesBlock = document.createElement('STYLE');
 
-        style.setAttribute('type', 'text/css');
-        style.setAttribute('rel', 'stylesheet');
+        var styles = require('../css/main.css');
 
-        style.href = pathToExtension + CSS_FILE_PATH;
+        stylesBlock.innerHTML = styles[0][1];
 
-        document.head.appendChild(style);
+        document.head.appendChild(stylesBlock);
 
     };
 

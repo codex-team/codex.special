@@ -1,6 +1,6 @@
 {
   "name": "codex.special",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "description": "Module for making high-contrast version of websites.",
   "scripts": {
