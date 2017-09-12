@@ -4,14 +4,19 @@
 
 module.exports = {
 
+    none : {
+        increaseSize : '',
+        decreaseSize : ''
+    },
+
     ru : {
         increaseSize : 'Увеличить шрифт',
-        decreaseSize : 'Уменьшить шрифт',
+        decreaseSize : 'Уменьшить шрифт'
     },
 
     en : {
-        increaseSize : 'Increase font',
-        decreaseSize : 'Decrease font',
-    },
+        increaseSize : 'Increase font size',
+        decreaseSize : 'Decrease font size'
+    }
 
 };

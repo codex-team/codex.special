@@ -8,41 +8,41 @@
     border-radius: 50%;
     cursor: pointer;
     float: right;
-}
 
-.codex-special__circle:not(:first-of-type) {
-    margin-right: 5px;
-}
+    &:not(:first-of-type) {
+        margin-right: 5px;
+    }
 
-.codex-special__circle:hover {
-    width: 11px;
-    height: 11px;
-    border-width: 5px;
-}
+    &:hover {
+        width: 11px;
+        height: 11px;
+        border-width: 5px;
+    }
 
-.codex-special__circle--enabled {
-    border-radius: 10%;
-}
+    &--enabled {
+        border-radius: 10%;
+    }
 
-.codex-special__circle--disabled {
-    opacity: 0.7;
-}
+    &--disabled {
+        opacity: 0.7;
 
-.codex-special__circle--disabled:hover {
-    opacity: 1;
-}
+        &:hover {
+            opacity: 1;
+        }
+    }
 
-.codex-special__circle--blue {
-    background-color: #36465b;
-    border-color: #c5dfff !important;
-}
+    &--blue {
+        background-color: #36465b;
+        border-color: #c5dfff !important;
+    }
 
-.codex-special__circle--green {
-    background-color: #44e963;
-    border-color: #7c766a !important;
-}
+    &--green {
+        background-color: #44e963;
+        border-color: #7c766a !important;
+    }
 
-.codex-special__circle--white {
-    background-color: #fff;
-    border-color: #2b2a28 !important;
+    &--white {
+        background-color: #fff;
+        border-color: #2b2a28 !important;
+    }
 }

@@ -3,7 +3,6 @@
  */
 
 var webpack           = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StyleLintPlugin   = require('stylelint-webpack-plugin');
 
 var entryFiles = {
@@ -13,7 +12,6 @@ var entryFiles = {
 
 var outputFiles = {
     'js' : './codex-special.min.js',
-    // 'css' : './codex-special.min.css',
 };
 
 
@@ -28,51 +26,35 @@ module.exports = {
     },
 
     module: {
-        loaders: [
-            {
-                test: /\.css$/,
-                loader: 'css-loader?uglify=1&importLoaders=1!postcss-loader'
-                // ExtractTextPlugin.extract('css-loader?uglify=1&importLoaders=1!postcss-loader'),
-            },
-            {
-                test : /\.js$/,
-                loader: 'eslint-loader'
-            }
-        ]
-    },
-
-    /**
-     * PostCSS configuration
-     */
-    postcss: function () {
-
-        return [
-
-            /** Allows using CSSnet for included files */
-            require('postcss-smart-import'),
-
-            /** Allows using future capabilities: variables, functions */
-            require('postcss-cssnext'),
-
-        ];
-
+        loaders: [ {
+            test: /\.css$/,
+            use: [ {
+                loader: 'css-loader',
+                options: {
+                    minimize: 1,
+                    importLoaders: 1
+                }
+            }, {
+                loader: 'postcss-loader'
+            } ]
+        }, {
+            test : /\.js$/,
+            use : [ {
+                loader: 'babel-loader',
+                query: {
+                    presets: [ 'es2015' ],
+                }
+            }, {
+                loader: 'eslint-loader',
+                options: {
+                    fix: true,
+                    sourceType: 'module'
+                }
+            } ]
+        } ]
     },
 
     plugins: [
-
-        /** Minify CSS and JS */
-        new webpack.optimize.UglifyJsPlugin({
-            /** Disable warning messages. Cant disable uglify for 3rd party libs such as html-janitor */
-            compress: {
-                warnings: false
-            }
-        }),
-
-        /** Block build if errors found */
-        new webpack.NoErrorsPlugin(),
-
-        /** Put CSS into external bundle */
-        // new ExtractTextPlugin(outputFiles['css']),
 
         /** Check CSS code style */
         new StyleLintPlugin({
@@ -80,15 +62,24 @@ module.exports = {
             files : entryFiles['css'],
         }),
 
+        /** Minify CSS and JS */
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            sourceMap: true
+        }),
+
+        /** Block build if errors found */
+        new webpack.NoEmitOnErrorsPlugin(),
+
     ],
 
     devtool: 'source-map',
 
-    /** Auto rebuld */
+  /** Auto rebuld */
     watch: true,
     watchOptions: {
-
-        /** Timeout before build */
         aggragateTimeout: 50
     }
 };

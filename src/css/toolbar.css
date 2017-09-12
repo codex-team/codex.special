@@ -4,83 +4,84 @@
     white-space: nowrap;
     z-index: 9999;
     line-height: 21px !important;
-}
 
-/** Wrap for saving font-size in toolbar */
-html body .codex-special__toolbar {
-    font-size: 15px !important;
-}
+    &--included {
+        position: relative;
+        border-top: 1px solid #f2f4f8;
+    }
 
-.codex-special__toolbar--included {
-    position: relative;
-    border-top: 1px solid #f2f4f8;
-}
+    &--excluded {
+        position: fixed;
+        width: 300px;
+        border: 1px solid #f2f4f8;
+    }
 
-.codex-special__toolbar--excluded {
-    position: fixed;
-    width: 300px;
-    border: 1px solid #f2f4f8;
-}
+    &--position {
 
-.codex-special__toolbar--position-top {
-    top: 0;
-    bottom: auto;
-    border-radius: 0 0 3px 3px;
-    border-top: 0;
-}
+        &-top {
+            top: 0;
+            bottom: auto;
+            border-radius: 0 0 3px 3px;
+            border-top: 0;
+        }
 
-.codex-special__toolbar--position-bottom {
-    top: auto;
-    bottom: 0;
-    border-radius: 3px 3px 0 0;
-    border-bottom: 0;
-}
+        &-bottom {
+            top: auto;
+            bottom: 0;
+            border-radius: 3px 3px 0 0;
+            border-bottom: 0;
+        }
 
-.codex-special__toolbar--position-left {
-    left: 3%;
-    right: auto;
-}
+        &-left {
+            left: 3%;
+            right: auto;
+        }
 
-.codex-special__toolbar--position-right {
-    right: 3%;
-    left: auto;
-}
+        &-right {
+            right: 3%;
+            left: auto;
+        }
 
-.codex-special__toolbar-text {
-    display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-    border-radius: 5px;
-}
+    }
 
-.codex-special__toolbar-text:hover {
-    color: #3d82c1;
-}
+    &-icon {
+        display: inline-block;
+        margin-right: 0.3em;
+        margin-bottom: 1px;
+        vertical-align: text-bottom;
+        line-height: 1em;
+        font-size: 0.84em;
+        font-style: normal;
 
-.codex-special__toolbar-icon {
-    display: inline-block;
-    margin-right: 0.3em;
-    margin-bottom: 1px;
-    vertical-align: text-bottom;
-    line-height: 1em;
-    font-size: 0.84em;
-    font-style: normal;
-}
+        &::before {
+            content: 'A';
+            font-family: 'codex-special';
+        }
+    }
 
-.codex-special__toolbar-icon::before {
-    content: 'A';
-    font-family: 'codex-special';
+    &-text {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &:hover {
+            color: #3d82c1;
+        }
+    }
 }
 
 /**
 * Style for text-button icon if special-big is enable
 */
-.special-big .codex-special__toolbar-icon {
-    line-height: 0.96em;
-}
+.special-big {
+    & .codex-special__toolbar-icon {
+        line-height: 0.96em;
 
-.special-big .codex-special__toolbar-icon::before {
-    content: 'B';
+        ::before {
+            content: 'B';
+        }
+    }
 }
 
 /**
@@ -119,4 +120,9 @@ html body .codex-special__toolbar {
     .codex-special--excluded {
         padding-bottom: 50px;
     }
+}
+
+/** Wrap for saving font-size in toolbar */
+html body div.codex-special__toolbar {
+    font-size: 15px !important;
 }
